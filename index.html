@@ -1,9 +1,10 @@
+
 <!doctype html>
 <html class="no-js" lang="" xmlns:http="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>輔仁中學課表查詢</title>
+    <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,20 +15,23 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body background="http://ilovehdwallpapers.com/walls/butterfly-over-book--HD.jpg">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<p><font size="12">輔仁中學課表查詢 (104學年度)</font></p>
 
-<p>請選擇"年級"與"班級"後按"查詢"鍵</p>
+<title>輔仁中學課表查詢</title>
+
+<p><font face="微軟正黑體" size="12" color="#f8f8ff">輔仁中學課表查詢 (104學年度)</font></p>
+
+<p><font color="#00ffff" size="5"><b>請選擇"年級"與"班級"後按"查詢"鍵</b></font></p>
 
 <form>
 
-    <select name="Grade" style="width:120px; height:40px; font-size:20px">
+    <select name="Grade" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
 
         <option value="senior_3" selected>高三</option>
         <option value="senior_2">高二</option>
@@ -38,7 +42,7 @@
 
     </select>
 
-    <select name="Class" style="width:120px; height:40px; font-size:20px">
+    <select name="Class" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
 
         <option value="c1" selected>忠</option>
         <option value="c2">孝</option>
@@ -154,13 +158,11 @@
             window.open(uri);
         }
 
-
     </script>
 
     <input type="button"
            onclick="show(Grade.options[Grade.selectedIndex].text, Class.options[Class.selectedIndex].text)" value="查詢"
            style="width:120px; height:40px; font-size:20px">
-
 
 </form>
 
@@ -177,6 +179,7 @@
             function () {
                 (b[l].q = b[l].q || []).push(arguments)
             });
+        a
         b[l].l = +new Date;
         e = o.createElement(i);
         r = o.getElementsByTagName(i)[0];
