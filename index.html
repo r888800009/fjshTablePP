@@ -167,121 +167,113 @@
 
         //按照教師姓名查詢
         function tcSearch(name) {
+            
+            if (name == "羅色蕊") target = "T00106";
+            else if (name == "林美月") target = "T00108";
+            else if (name == "顏妙芬") target = "T00109";
+            else if (name == "黃瓊儀") target = "T00110";
+            else if (name == "張玲敏") target = "T00111";
+            else if (name == "魏樹煌") target = "T00112";
+            else if (name == "林義益") target = "T00118";
+            else if (name == "李姿瑩") target = "T00121";
+            else if (name == "陳亭妤") target = "T00122";
+            else if (name == "楊芳瑜") target = "T00123";
+            else if (name == "陳怡叡") target = "T00124";
+            else if (name == "謝幸真") target = "T00125";
+            else if (name == "江易澄") target = "T00202";
+            else if (name == "胡明哲") target = "T00203";
+            else if (name == "王敬恆") target = "T00204";
+            else if (name == "方子毓") target = "T00205";
+            else if (name == "黃敬家") target = "T00302";
+            else if (name == "黃義清") target = "T00304";
+            else if (name == "葉睿寧") target = "T00309";
+            else if (name == "鍾復民") target = "T00401";
+            else if (name == "蔡清華") target = "T00402";
+            else if (name == "王介廷") target = "T00403";
+            else if (name == "賴威妤") target = "T00404";
+            else if (name == "劉雅棋") target = "T00405";
+            else if (name == "張熒珍") target = "T00406";
+            else if (name == "侯如俐") target = "T00502";
+            else if (name == "曹峰彰") target = "T00505";
+            else if (name == "林麗鑫") target = "T00506";
+            else if (name == "詹嘉珍") target = "T00507";
+            else if (name == "張冬梅") target = "T00509";
+            else if (name == "吳建毅") target = "T00510";
+            else if (name == "James") target = "T00517";
+            else if (name == "詹力豪") target = "T00526";
+            else if (name == "楊念達") target = "T00527";
+            else if (name == "李思柔") target = "T00528";
+            else if (name == "侯奕瑍") target = "T00529";
+            else if (name == "林華生") target = "T00530";
+            else if (name == "廖真慧") target = "T00531";
+            else if (name == "陸慧澍") target = "T00532";
+            else if (name == "張凱媚") target = "T00533";
+            else if (name == "蔡金發") target = "T00534";
+            else if (name == "吳垣甫") target = "T00605";
+            else if (name == "李妙真") target = "T00611";
+            else if (name == "黃宏基") target = "T00612";
+            else if (name == "楊宗宜") target = "T00626";
+            else if (name == "林政明") target = "T00628";
+            else if (name == "吳坤洋") target = "T00629";
+            else if (name == "張欽斐") target = "T00631";
+            else if (name == "蘇嘉燦") target = "T00632";
+            else if (name == "林峮唯") target = "T00633";
+            else if (name == "蔡易儒") target = "T00635";
+            else if (name == "柳嘉哲") target = "T00636";
+            else if (name == "蕭毓頻") target = "T00637";
+            else if (name == "江浚豪") target = "T00638";
+            else if (name == "游天明") target = "T00639";
+            else if (name == "林偉銘") target = "T00701";
+            else if (name == "陳儒德") target = "T00702";
+            else if (name == "張政達") target = "T00703";
+            else if (name == "連閔凱") target = "T00707";
+            else if (name == "黃世諺") target = "T00711";
+            else if (name == "何永森") target = "T00801";
+            else if (name == "郭斌") target = "T00805";
+            else if (name == "杜亮") target = "T00813";
+            else if (name == "呂峻豪") target = "T00814";
+            else if (name == "黃孟冀") target = "T00815";
+            else if (name == "劉佳宜") target = "T00816";
+            else if (name == "陳靖縈") target = "T00908";
+            else if (name == "賴佩君") target = "T00909";
+            else if (name == "李政鴻") target = "T00912";
+            else if (name == "劉乃菁") target = "T00913";
+            else if (name == "蔡佳容") target = "T00914";
+            else if (name == "張雅琳") target = "T01001";
+            else if (name == "江如玫") target = "T01002";
+            else if (name == "江明玲") target = "T01101";
+            else if (name == "黃永賢") target = "T01105";
+            else if (name == "顏秀如") target = "T01106";
+            else if (name == "徐憲清") target = "T01201";
+            else if (name == "汪振元") target = "T01202";
+            else if (name == "張建華") target = "T01204";
+            else if (name == "黃玟穎") target = "T01209";
+            else if (name == "侯凱喨") target = "T01301";
+            else if (name == "劉窈吾") target = "T01302";
+            else if (name == "陳揮明") target = "T01303";
+            else if (name == "陳泳澄") target = "T01304";
+            else if (name == "邱雅綺") target = "T01412";
+            else if (name == "陳志偉") target = "T01511";
+            else if (name == "林建政") target = "T01512";
+            else if (name == "Lynne") target = "T01602";
+            else if (name == "譚志忠") target = "T01713";
+            else if (name == "王智永") target = "T01716";
+            else if (name == "劉惠玲") target = "T01717";
+            else if (name == "盧尚俞") target = "T01718";
+            else if (name == "陳碧桑") target = "T01719";
+            else if (name == "南榮教授") target = "T01720";
+            else if (name == "方淑如") target = "T01723";
+            else if (name == "南榮教授") target = "T01724";
+            else if (name == "楊鎮賢") target = "T01725";
+            else if (name == "林賢豪") target = "T01726";
+            else if (name == "王淑誼") target = "T01803";
+            else if (name == "邱靖嵐") target = "T01805";
 
-            if (name != "") {
 
-                if (name == "羅色蕊") target = "T00106";
-                else if (name == "林美月") target = "T00108";
-                else if (name == "顏妙芬") target = "T00109";
-                else if (name == "黃瓊儀") target = "T00110";
-                else if (name == "張玲敏") target = "T00111";
-                else if (name == "魏樹煌") target = "T00112";
-                else if (name == "林義益") target = "T00118";
-                else if (name == "李姿瑩") target = "T00121";
-                else if (name == "陳亭妤") target = "T00122";
-                else if (name == "楊芳瑜") target = "T00123";
-                else if (name == "陳怡叡") target = "T00124";
-                else if (name == "謝幸真") target = "T00125";
-                else if (name == "江易澄") target = "T00202";
-                else if (name == "胡明哲") target = "T00203";
-                else if (name == "王敬恆") target = "T00204";
-                else if (name == "方子毓") target = "T00205";
-                else if (name == "黃敬家") target = "T00302";
-                else if (name == "黃義清") target = "T00304";
-                else if (name == "葉睿寧") target = "T00309";
-                else if (name == "鍾復民") target = "T00401";
-                else if (name == "蔡清華") target = "T00402";
-                else if (name == "王介廷") target = "T00403";
-                else if (name == "賴威妤") target = "T00404";
-                else if (name == "劉雅棋") target = "T00405";
-                else if (name == "張熒珍") target = "T00406";
-                else if (name == "侯如俐") target = "T00502";
-                else if (name == "曹峰彰") target = "T00505";
-                else if (name == "林麗鑫") target = "T00506";
-                else if (name == "詹嘉珍") target = "T00507";
-                else if (name == "張冬梅") target = "T00509";
-                else if (name == "吳建毅") target = "T00510";
-                else if (name == "James") target = "T00517";
-                else if (name == "詹力豪") target = "T00526";
-                else if (name == "楊念達") target = "T00527";
-                else if (name == "李思柔") target = "T00528";
-                else if (name == "侯奕瑍") target = "T00529";
-                else if (name == "林華生") target = "T00530";
-                else if (name == "廖真慧") target = "T00531";
-                else if (name == "陸慧澍") target = "T00532";
-                else if (name == "張凱媚") target = "T00533";
-                else if (name == "蔡金發") target = "T00534";
-                else if (name == "吳垣甫") target = "T00605";
-                else if (name == "李妙真") target = "T00611";
-                else if (name == "黃宏基") target = "T00612";
-                else if (name == "楊宗宜") target = "T00626";
-                else if (name == "林政明") target = "T00628";
-                else if (name == "吳坤洋") target = "T00629";
-                else if (name == "張欽斐") target = "T00631";
-                else if (name == "蘇嘉燦") target = "T00632";
-                else if (name == "林峮唯") target = "T00633";
-                else if (name == "蔡易儒") target = "T00635";
-                else if (name == "柳嘉哲") target = "T00636";
-                else if (name == "蕭毓頻") target = "T00637";
-                else if (name == "江浚豪") target = "T00638";
-                else if (name == "游天明") target = "T00639";
-                else if (name == "林偉銘") target = "T00701";
-                else if (name == "陳儒德") target = "T00702";
-                else if (name == "張政達") target = "T00703";
-                else if (name == "連閔凱") target = "T00707";
-                else if (name == "黃世諺") target = "T00711";
-                else if (name == "何永森") target = "T00801";
-                else if (name == "郭斌") target = "T00805";
-                else if (name == "杜亮") target = "T00813";
-                else if (name == "呂峻豪") target = "T00814";
-                else if (name == "黃孟冀") target = "T00815";
-                else if (name == "劉佳宜") target = "T00816";
-                else if (name == "陳靖縈") target = "T00908";
-                else if (name == "賴佩君") target = "T00909";
-                else if (name == "李政鴻") target = "T00912";
-                else if (name == "劉乃菁") target = "T00913";
-                else if (name == "蔡佳容") target = "T00914";
-                else if (name == "張雅琳") target = "T01001";
-                else if (name == "江如玫") target = "T01002";
-                else if (name == "江明玲") target = "T01101";
-                else if (name == "黃永賢") target = "T01105";
-                else if (name == "顏秀如") target = "T01106";
-                else if (name == "徐憲清") target = "T01201";
-                else if (name == "汪振元") target = "T01202";
-                else if (name == "張建華") target = "T01204";
-                else if (name == "黃玟穎") target = "T01209";
-                else if (name == "侯凱喨") target = "T01301";
-                else if (name == "劉窈吾") target = "T01302";
-                else if (name == "陳揮明") target = "T01303";
-                else if (name == "陳泳澄") target = "T01304";
-                else if (name == "邱雅綺") target = "T01412";
-                else if (name == "陳志偉") target = "T01511";
-                else if (name == "林建政") target = "T01512";
-                else if (name == "Lynne") target = "T01602";
-                else if (name == "譚志忠") target = "T01713";
-                else if (name == "王智永") target = "T01716";
-                else if (name == "劉惠玲") target = "T01717";
-                else if (name == "盧尚俞") target = "T01718";
-                else if (name == "陳碧桑") target = "T01719";
-                else if (name == "方淑如") target = "T01723";
-                else if (name == "南榮教授") target = "T01724";
-                else if (name == "楊鎮賢") target = "T01725";
-                else if (name == "林賢豪") target = "T01726";
-                else if (name == "王淑誼") target = "T01803";
-                else if (name == "邱靖嵐") target = "T01805";
-                else
-                {
-                    alert("查無此教師!")
-                    return
-                }
-                uri = uri + target + ".HTM";
-                target = "";
-                window.open(uri);
-                uri = "http://www.fjsh.cy.edu.tw/CSHTML1041/";
-            }
-
-            else
-                alert("請輸入教師姓名!")
+            uri = uri + target + ".HTM";
+            target = "";
+            window.open(uri);
+            uri = "http://www.fjsh.cy.edu.tw/CSHTML1041/";
         }
 
     </script>
@@ -387,7 +379,6 @@
         <option>劉惠玲</option>
         <option>盧尚俞</option>
         <option>陳碧桑</option>
-        <option>南榮教授</option>
         <option>方淑如</option>
         <option>南榮教授</option>
         <option>楊鎮賢</option>
