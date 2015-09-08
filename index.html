@@ -152,7 +152,7 @@
                 }
 
             }
-
+            
             uri = uri + target + ".HTM";
             window.open(uri);
         }
@@ -165,112 +165,24 @@
         var uri = "http://www.fjsh.cy.edu.tw/CSHTML1041/";
         var target = "";
 
+        var total;
+        var tcID = new Array("T00106", "T00108", "T00109", "T00110", "T00111", "T00112", "T00118", "T00121", "T00122", "T00123", "T00124", "T00125", "T00202", "T00203", "T00204", "T00205", "T00302", "T00304", "T00309", "T00401", "T00402", "T00403", "T00404", "T00405", "T00406", "T00502", "T00505", "T00506", "T00507", "T00509", "T00510", "T00517", "T00526", "T00527", "T00528", "T00529", "T00530", "T00531", "T00532", "T00533", "T00534", "T00605", "T00611", "T00612", "T00626", "T00628", "T00629", "T00631", "T00632", "T00633", "T00635", "T00636", "T00637", "T00638", "T00639", "T00701", "T00702", "T00703", "T00707", "T00711", "T00801", "T00805", "T00813", "T00814", "T00815", "T00816", "T00908", "T00909", "T00912", "T00913", "T00914", "T01001", "T01002", "T01101", "T01105", "T01106", "T01201", "T01202", "T01204", "T01209", "T01301", "T01302", "T01303", "T01304", "T01412", "T01511", "T01512", "T01602", "T01713", "T01716", "T01717", "T01718", "T01719", "T01720", "T01723", "T01724", "T01725", "T01726", "T01803", "T01805");
+        var tcName = new Array("羅色蕊", "林美月", "顏妙芬", "黃瓊儀", "張玲敏", "魏樹煌", "林義益", "李姿瑩", "陳亭妤", "楊芳瑜", "陳怡叡", "謝幸真", "江易澄", "胡明哲", "王敬恆", "方子毓", "黃敬家", "黃義清", "葉睿寧", "鍾復民", "蔡清華", "王介廷", "賴威妤", "劉雅棋", "張熒珍", "侯如俐", "曹峰彰", "林麗鑫", "詹嘉珍", "張冬梅", "吳建毅", "James", "詹力豪", "楊念達", "李思柔", "侯奕瑍", "林華生", "廖真慧", "陸慧澍", "張凱媚", "蔡金發", "吳垣甫", "李妙真", "黃宏基", "楊宗宜", "林政明", "吳坤洋", "張欽斐", "蘇嘉燦", "林峮唯", "蔡易儒", "柳嘉哲", "蕭毓頻", "江浚豪", "游天明", "林偉銘", "陳儒德", "張政達", "連閔凱", "黃世諺", "何永森", "郭斌", "杜亮", "呂峻豪", "黃孟冀", "劉佳宜", "陳靖縈", "賴佩君", "李政鴻", "劉乃菁", "蔡佳容", "張雅琳", "江如玫", "江明玲", "黃永賢", "顏秀如", "徐憲清", "汪振元", "張建華", "黃玟穎", "侯凱喨", "劉窈吾", "陳揮明", "陳泳澄", "邱雅綺", "陳志偉", "林建政", "Lynne", "譚志忠", "王智永", "劉惠玲", "盧尚俞", "陳碧桑", "南榮教授", "方淑如", "南榮教授", "楊鎮賢", "林賢豪", "王淑誼", "邱靖嵐");
+        //日後只需擴充tcID跟tcName，網頁即可抓取對應的成員名單與長度
+        total = tcID.length
+
         //按照教師姓名查詢
         function tcSearch(name) {
 
-            if (name == "羅色蕊") target = "T00106";
-            else if (name == "林美月") target = "T00108";
-            else if (name == "顏妙芬") target = "T00109";
-            else if (name == "黃瓊儀") target = "T00110";
-            else if (name == "張玲敏") target = "T00111";
-            else if (name == "魏樹煌") target = "T00112";
-            else if (name == "林義益") target = "T00118";
-            else if (name == "李姿瑩") target = "T00121";
-            else if (name == "陳亭妤") target = "T00122";
-            else if (name == "楊芳瑜") target = "T00123";
-            else if (name == "陳怡叡") target = "T00124";
-            else if (name == "謝幸真") target = "T00125";
-            else if (name == "江易澄") target = "T00202";
-            else if (name == "胡明哲") target = "T00203";
-            else if (name == "王敬恆") target = "T00204";
-            else if (name == "方子毓") target = "T00205";
-            else if (name == "黃敬家") target = "T00302";
-            else if (name == "黃義清") target = "T00304";
-            else if (name == "葉睿寧") target = "T00309";
-            else if (name == "鍾復民") target = "T00401";
-            else if (name == "蔡清華") target = "T00402";
-            else if (name == "王介廷") target = "T00403";
-            else if (name == "賴威妤") target = "T00404";
-            else if (name == "劉雅棋") target = "T00405";
-            else if (name == "張熒珍") target = "T00406";
-            else if (name == "侯如俐") target = "T00502";
-            else if (name == "曹峰彰") target = "T00505";
-            else if (name == "林麗鑫") target = "T00506";
-            else if (name == "詹嘉珍") target = "T00507";
-            else if (name == "張冬梅") target = "T00509";
-            else if (name == "吳建毅") target = "T00510";
-            else if (name == "James") target = "T00517";
-            else if (name == "詹力豪") target = "T00526";
-            else if (name == "楊念達") target = "T00527";
-            else if (name == "李思柔") target = "T00528";
-            else if (name == "侯奕瑍") target = "T00529";
-            else if (name == "林華生") target = "T00530";
-            else if (name == "廖真慧") target = "T00531";
-            else if (name == "陸慧澍") target = "T00532";
-            else if (name == "張凱媚") target = "T00533";
-            else if (name == "蔡金發") target = "T00534";
-            else if (name == "吳垣甫") target = "T00605";
-            else if (name == "李妙真") target = "T00611";
-            else if (name == "黃宏基") target = "T00612";
-            else if (name == "楊宗宜") target = "T00626";
-            else if (name == "林政明") target = "T00628";
-            else if (name == "吳坤洋") target = "T00629";
-            else if (name == "張欽斐") target = "T00631";
-            else if (name == "蘇嘉燦") target = "T00632";
-            else if (name == "林峮唯") target = "T00633";
-            else if (name == "蔡易儒") target = "T00635";
-            else if (name == "柳嘉哲") target = "T00636";
-            else if (name == "蕭毓頻") target = "T00637";
-            else if (name == "江浚豪") target = "T00638";
-            else if (name == "游天明") target = "T00639";
-            else if (name == "林偉銘") target = "T00701";
-            else if (name == "陳儒德") target = "T00702";
-            else if (name == "張政達") target = "T00703";
-            else if (name == "連閔凱") target = "T00707";
-            else if (name == "黃世諺") target = "T00711";
-            else if (name == "何永森") target = "T00801";
-            else if (name == "郭斌") target = "T00805";
-            else if (name == "杜亮") target = "T00813";
-            else if (name == "呂峻豪") target = "T00814";
-            else if (name == "黃孟冀") target = "T00815";
-            else if (name == "劉佳宜") target = "T00816";
-            else if (name == "陳靖縈") target = "T00908";
-            else if (name == "賴佩君") target = "T00909";
-            else if (name == "李政鴻") target = "T00912";
-            else if (name == "劉乃菁") target = "T00913";
-            else if (name == "蔡佳容") target = "T00914";
-            else if (name == "張雅琳") target = "T01001";
-            else if (name == "江如玫") target = "T01002";
-            else if (name == "江明玲") target = "T01101";
-            else if (name == "黃永賢") target = "T01105";
-            else if (name == "顏秀如") target = "T01106";
-            else if (name == "徐憲清") target = "T01201";
-            else if (name == "汪振元") target = "T01202";
-            else if (name == "張建華") target = "T01204";
-            else if (name == "黃玟穎") target = "T01209";
-            else if (name == "侯凱喨") target = "T01301";
-            else if (name == "劉窈吾") target = "T01302";
-            else if (name == "陳揮明") target = "T01303";
-            else if (name == "陳泳澄") target = "T01304";
-            else if (name == "邱雅綺") target = "T01412";
-            else if (name == "陳志偉") target = "T01511";
-            else if (name == "林建政") target = "T01512";
-            else if (name == "Lynne") target = "T01602";
-            else if (name == "譚志忠") target = "T01713";
-            else if (name == "王智永") target = "T01716";
-            else if (name == "劉惠玲") target = "T01717";
-            else if (name == "盧尚俞") target = "T01718";
-            else if (name == "陳碧桑") target = "T01719";
-            else if (name == "南榮教授1") target = "T01720";
-            else if (name == "方淑如") target = "T01723";
-            else if (name == "南榮教授2") target = "T01724";
-            else if (name == "楊鎮賢") target = "T01725";
-            else if (name == "林賢豪") target = "T01726";
-            else if (name == "王淑誼") target = "T01803";
-            else if (name == "邱靖嵐") target = "T01805";
+            for (var i = 0; i < total; i++) {
 
+                if (name == tcName[i]) {
+                    target = tcID[i];
+                }
+            }
 
             uri = uri + target + ".HTM";
+
             target = "";
             window.open(uri);
             uri = "http://www.fjsh.cy.edu.tw/CSHTML1041/";
@@ -386,6 +298,7 @@
         <option>林賢豪</option>
         <option>王淑誼</option>
         <option>邱靖嵐</option>
+        <option>test</option>
 
     </select>
     <input type="button"
