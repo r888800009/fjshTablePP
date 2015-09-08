@@ -22,7 +22,7 @@
 
 <!-- Add your site or application content here -->
 
-<title>輔仁課表查詢</title>
+<title>輔仁中學課表查詢</title>
 
 <p><font face="微軟正黑體" size="12">輔仁中學課表查詢 (104學年度)</font></p>
 
@@ -159,6 +159,7 @@
 
     </script>
 
+
     <script>
 
         var uri = "http://www.fjsh.cy.edu.tw/CSHTML1041/";
@@ -200,7 +201,7 @@
                 else if (name == "詹嘉珍") target = "T00507";
                 else if (name == "張冬梅") target = "T00509";
                 else if (name == "吳建毅") target = "T00510";
-                else if (name == "James" || name == "james") target = "T00517";
+                else if (name == "James") target = "T00517";
                 else if (name == "詹力豪") target = "T00526";
                 else if (name == "楊念達") target = "T00527";
                 else if (name == "李思柔") target = "T00528";
@@ -256,7 +257,7 @@
                 else if (name == "邱雅綺") target = "T01412";
                 else if (name == "陳志偉") target = "T01511";
                 else if (name == "林建政") target = "T01512";
-                else if (name == "Lynne" || name == "lynne") target = "T01602";
+                else if (name == "Lynne") target = "T01602";
                 else if (name == "譚志忠") target = "T01713";
                 else if (name == "王智永") target = "T01716";
                 else if (name == "劉惠玲") target = "T01717";
@@ -292,9 +293,112 @@
     <br>
     <br>
 
-    <input type="text" name="teacher" style="width:180px; height:30px; font-size:20px" face="微軟正黑體">
+    <select name="Teacher" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
+
+        <option>羅色蕊</option>
+        <option>林美月</option>
+        <option>顏妙芬</option>
+        <option>黃瓊儀</option>
+        <option>張玲敏</option>
+        <option>魏樹煌</option>
+        <option>林義益</option>
+        <option>李姿瑩</option>
+        <option>陳亭妤</option>
+        <option>楊芳瑜</option>
+        <option>陳怡叡</option>
+        <option>謝幸真</option>
+        <option>江易澄</option>
+        <option>胡明哲</option>
+        <option>王敬恆</option>
+        <option>方子毓</option>
+        <option>黃敬家</option>
+        <option>黃義清</option>
+        <option>葉睿寧</option>
+        <option>鍾復民</option>
+        <option>蔡清華</option>
+        <option>王介廷</option>
+        <option>賴威妤</option>
+        <option>劉雅棋</option>
+        <option>張熒珍</option>
+        <option>侯如俐</option>
+        <option>曹峰彰</option>
+        <option>林麗鑫</option>
+        <option>詹嘉珍</option>
+        <option>張冬梅</option>
+        <option>吳建毅</option>
+        <option>James</option>
+        <option>詹力豪</option>
+        <option>楊念達</option>
+        <option>李思柔</option>
+        <option>侯奕瑍</option>
+        <option>林華生</option>
+        <option>廖真慧</option>
+        <option>陸慧澍</option>
+        <option>張凱媚</option>
+        <option>蔡金發</option>
+        <option>吳垣甫</option>
+        <option>李妙真</option>
+        <option>黃宏基</option>
+        <option>楊宗宜</option>
+        <option>林政明</option>
+        <option>吳坤洋</option>
+        <option>張欽斐</option>
+        <option>蘇嘉燦</option>
+        <option>林峮唯</option>
+        <option>蔡易儒</option>
+        <option>柳嘉哲</option>
+        <option>蕭毓頻</option>
+        <option>江浚豪</option>
+        <option>游天明</option>
+        <option>林偉銘</option>
+        <option>陳儒德</option>
+        <option>張政達</option>
+        <option>連閔凱</option>
+        <option>黃世諺</option>
+        <option>何永森</option>
+        <option>郭斌</option>
+        <option>杜亮</option>
+        <option>呂峻豪</option>
+        <option>黃孟冀</option>
+        <option>劉佳宜</option>
+        <option>陳靖縈</option>
+        <option>賴佩君</option>
+        <option>李政鴻</option>
+        <option>劉乃菁</option>
+        <option>蔡佳容</option>
+        <option>張雅琳</option>
+        <option>江如玫</option>
+        <option>江明玲</option>
+        <option>黃永賢</option>
+        <option>顏秀如</option>
+        <option>徐憲清</option>
+        <option>汪振元</option>
+        <option>張建華</option>
+        <option>黃玟穎</option>
+        <option>侯凱喨</option>
+        <option>劉窈吾</option>
+        <option>陳揮明</option>
+        <option>陳泳澄</option>
+        <option>邱雅綺</option>
+        <option>陳志偉</option>
+        <option>林建政</option>
+        <option>Lynne</option>
+        <option>譚志忠</option>
+        <option>王智永</option>
+        <option>劉惠玲</option>
+        <option>盧尚俞</option>
+        <option>陳碧桑</option>
+        <option>南榮教授</option>
+        <option>方淑如</option>
+        <option>南榮教授</option>
+        <option>楊鎮賢</option>
+        <option>林賢豪</option>
+        <option>王淑誼</option>
+        <option>邱靖嵐</option>
+
+    </select>
     <input type="button"
-           onclick="tcSearch(teacher.value)" value="教師查詢"
+           onclick="tcSearch(Teacher.options[Teacher.selectedIndex].text)" value="教師查詢"
            style="width:120px; height:37px; font-size:20px">
 
     <br>
