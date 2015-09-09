@@ -152,13 +152,12 @@
                 }
 
             }
-            
+
             uri = uri + target + ".HTM";
             window.open(uri);
         }
 
     </script>
-
 
     <script>
 
@@ -166,18 +165,24 @@
         var target = "";
 
         var total;
-        var tcID = new Array("T00106", "T00108", "T00109", "T00110", "T00111", "T00112", "T00118", "T00121", "T00122", "T00123", "T00124", "T00125", "T00202", "T00203", "T00204", "T00205", "T00302", "T00304", "T00309", "T00401", "T00402", "T00403", "T00404", "T00405", "T00406", "T00502", "T00505", "T00506", "T00507", "T00509", "T00510", "T00517", "T00526", "T00527", "T00528", "T00529", "T00530", "T00531", "T00532", "T00533", "T00534", "T00605", "T00611", "T00612", "T00626", "T00628", "T00629", "T00631", "T00632", "T00633", "T00635", "T00636", "T00637", "T00638", "T00639", "T00701", "T00702", "T00703", "T00707", "T00711", "T00801", "T00805", "T00813", "T00814", "T00815", "T00816", "T00908", "T00909", "T00912", "T00913", "T00914", "T01001", "T01002", "T01101", "T01105", "T01106", "T01201", "T01202", "T01204", "T01209", "T01301", "T01302", "T01303", "T01304", "T01412", "T01511", "T01512", "T01602", "T01713", "T01716", "T01717", "T01718", "T01719", "T01720", "T01723", "T01724", "T01725", "T01726", "T01803", "T01805");
-        var tcName = new Array("羅色蕊", "林美月", "顏妙芬", "黃瓊儀", "張玲敏", "魏樹煌", "林義益", "李姿瑩", "陳亭妤", "楊芳瑜", "陳怡叡", "謝幸真", "江易澄", "胡明哲", "王敬恆", "方子毓", "黃敬家", "黃義清", "葉睿寧", "鍾復民", "蔡清華", "王介廷", "賴威妤", "劉雅棋", "張熒珍", "侯如俐", "曹峰彰", "林麗鑫", "詹嘉珍", "張冬梅", "吳建毅", "James", "詹力豪", "楊念達", "李思柔", "侯奕瑍", "林華生", "廖真慧", "陸慧澍", "張凱媚", "蔡金發", "吳垣甫", "李妙真", "黃宏基", "楊宗宜", "林政明", "吳坤洋", "張欽斐", "蘇嘉燦", "林峮唯", "蔡易儒", "柳嘉哲", "蕭毓頻", "江浚豪", "游天明", "林偉銘", "陳儒德", "張政達", "連閔凱", "黃世諺", "何永森", "郭斌", "杜亮", "呂峻豪", "黃孟冀", "劉佳宜", "陳靖縈", "賴佩君", "李政鴻", "劉乃菁", "蔡佳容", "張雅琳", "江如玫", "江明玲", "黃永賢", "顏秀如", "徐憲清", "汪振元", "張建華", "黃玟穎", "侯凱喨", "劉窈吾", "陳揮明", "陳泳澄", "邱雅綺", "陳志偉", "林建政", "Lynne", "譚志忠", "王智永", "劉惠玲", "盧尚俞", "陳碧桑", "南榮教授", "方淑如", "南榮教授", "楊鎮賢", "林賢豪", "王淑誼", "邱靖嵐");
-        //日後只需擴充tcID跟tcName，網頁即可抓取對應的成員名單與長度
-        total = tcID.length
+        var List = new Array(["羅色蕊", "T00106"], ["林美月", "T00108"], ["顏妙芬", "T00109"], ["黃瓊儀", "T00110"], ["張玲敏", "T00111"], ["魏樹煌", "T00112"], ["林義益", "T00118"], ["李姿瑩", "T00121"], ["陳亭妤", "T00122"], ["楊芳瑜", "T00123"], ["陳怡叡", "T00124"], ["謝幸真", "T00125"], ["江易澄", "T00202"], ["胡明哲", "T00203"], ["王敬恆", "T00204"], ["方子毓", "T00205"], ["黃敬家", "T00302"], ["黃義清", "T00304"], ["葉睿寧", "T00309"], ["鍾復民", "T00401"], ["蔡清華", "T00402"], ["王介廷", "T00403"], ["賴威妤", "T00404"], ["劉雅棋", "T00405"], ["張熒珍", "T00406"], ["侯如俐", "T00502"], ["曹峰彰", "T00505"], ["林麗鑫", "T00506"], ["詹嘉珍", "T00507"], ["張冬梅", "T00509"], ["吳建毅", "T00510"], ["James", "T00517"], ["詹力豪", "T00526"], ["楊念達", "T00527"], ["李思柔", "T00528"], ["侯奕瑍", "T00529"], ["林華生", "T00530"], ["廖真慧", "T00531"], ["陸慧澍", "T00532"], ["張凱媚", "T00533"], ["蔡金發", "T00534"], ["吳垣甫", "T00605"], ["李妙真", "T00611"], ["黃宏基", "T00612"], ["楊宗宜", "T00626"], ["林政明", "T00628"], ["吳坤洋", "T00629"], ["張欽斐", "T00631"], ["蘇嘉燦", "T00632"], ["林峮唯", "T00633"], ["蔡易儒", "T00635"], ["柳嘉哲", "T00636"], ["蕭毓頻", "T00637"], ["江浚豪", "T00638"], ["游天明", "T00639"], ["林偉銘", "T00701"], ["陳儒德", "T00702"], ["張政達", "T00703"], ["連閔凱", "T00707"], ["黃世諺", "T00711"], ["何永森", "T00801"], ["郭斌", "T00805"], ["杜亮", "T00813"], ["呂峻豪", "T00814"], ["黃孟冀", "T00815"], ["劉佳宜", "T00816"], ["陳靖縈", "T00908"], ["賴佩君", "T00909"], ["李政鴻", "T00912"], ["劉乃菁", "T00913"], ["蔡佳容", "T00914"], ["張雅琳", "T01001"], ["江如玫", "T01002"], ["江明玲", "T01101"], ["黃永賢", "T01105"], ["顏秀如", "T01106"], ["徐憲清", "T01201"], ["汪振元", "T01202"], ["張建華", "T01204"], ["黃玟穎", "T01209"], ["侯凱喨", "T01301"], ["劉窈吾", "T01302"], ["陳揮明", "T01303"], ["陳泳澄", "T01304"], ["邱雅綺", "T01412"], ["陳志偉", "T01511"], ["林建政", "T01512"], ["Lynne", "T01602"], ["譚志忠", "T01713"], ["王智永", "T01716"], ["劉惠玲", "T01717"], ["盧尚俞", "T01718"], ["陳碧桑", "T01719"], ["南榮教授", "T01720"], ["方淑如", "T01723"], ["南榮教授", "T01724"], ["楊鎮賢", "T01725"], ["林賢豪", "T01726"], ["王淑誼", "T01803"], ["邱靖嵐", "T01805"])
+
+        //日後只需擴充List，網頁即可抓取對應的成員名單與長度
+
+        //此處感謝 林詠翔 同學提供二維陣列的寫法
+        //以下彩蛋(?)另外附上解析學校網頁並自動生成二維陣列內容的程式，可以免去手動打姓名跟編號的麻煩
+        //載點: https://goo.gl/3UBYnt
+        //用法: 將所有班級課表的html放置於此程式的路徑下，並且執行程式進行分析，即可得到所有教師編號
+
+        total = List.length
 
         //按照教師姓名查詢
         function tcSearch(name) {
 
             for (var i = 0; i < total; i++) {
 
-                if (name == tcName[i]) {
-                    target = tcID[i];
+                if (name == tcName[i][0]) {
+                    target = tcID[i][1];
                 }
             }
 
@@ -198,108 +203,14 @@
 
     <select name="Teacher" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
 
-        <option>羅色蕊</option>
-        <option>林美月</option>
-        <option>顏妙芬</option>
-        <option>黃瓊儀</option>
-        <option>張玲敏</option>
-        <option>魏樹煌</option>
-        <option>林義益</option>
-        <option>李姿瑩</option>
-        <option>陳亭妤</option>
-        <option>楊芳瑜</option>
-        <option>陳怡叡</option>
-        <option>謝幸真</option>
-        <option>江易澄</option>
-        <option>胡明哲</option>
-        <option>王敬恆</option>
-        <option>方子毓</option>
-        <option>黃敬家</option>
-        <option>黃義清</option>
-        <option>葉睿寧</option>
-        <option>鍾復民</option>
-        <option>蔡清華</option>
-        <option>王介廷</option>
-        <option>賴威妤</option>
-        <option>劉雅棋</option>
-        <option>張熒珍</option>
-        <option>侯如俐</option>
-        <option>曹峰彰</option>
-        <option>林麗鑫</option>
-        <option>詹嘉珍</option>
-        <option>張冬梅</option>
-        <option>吳建毅</option>
-        <option>James</option>
-        <option>詹力豪</option>
-        <option>楊念達</option>
-        <option>李思柔</option>
-        <option>侯奕瑍</option>
-        <option>林華生</option>
-        <option>廖真慧</option>
-        <option>陸慧澍</option>
-        <option>張凱媚</option>
-        <option>蔡金發</option>
-        <option>吳垣甫</option>
-        <option>李妙真</option>
-        <option>黃宏基</option>
-        <option>楊宗宜</option>
-        <option>林政明</option>
-        <option>吳坤洋</option>
-        <option>張欽斐</option>
-        <option>蘇嘉燦</option>
-        <option>林峮唯</option>
-        <option>蔡易儒</option>
-        <option>柳嘉哲</option>
-        <option>蕭毓頻</option>
-        <option>江浚豪</option>
-        <option>游天明</option>
-        <option>林偉銘</option>
-        <option>陳儒德</option>
-        <option>張政達</option>
-        <option>連閔凱</option>
-        <option>黃世諺</option>
-        <option>何永森</option>
-        <option>郭斌</option>
-        <option>杜亮</option>
-        <option>呂峻豪</option>
-        <option>黃孟冀</option>
-        <option>劉佳宜</option>
-        <option>陳靖縈</option>
-        <option>賴佩君</option>
-        <option>李政鴻</option>
-        <option>劉乃菁</option>
-        <option>蔡佳容</option>
-        <option>張雅琳</option>
-        <option>江如玫</option>
-        <option>江明玲</option>
-        <option>黃永賢</option>
-        <option>顏秀如</option>
-        <option>徐憲清</option>
-        <option>汪振元</option>
-        <option>張建華</option>
-        <option>黃玟穎</option>
-        <option>侯凱喨</option>
-        <option>劉窈吾</option>
-        <option>陳揮明</option>
-        <option>陳泳澄</option>
-        <option>邱雅綺</option>
-        <option>陳志偉</option>
-        <option>林建政</option>
-        <option>Lynne</option>
-        <option>譚志忠</option>
-        <option>王智永</option>
-        <option>劉惠玲</option>
-        <option>盧尚俞</option>
-        <option>陳碧桑</option>
-        <option>方淑如</option>
-        <option>南榮教授1</option>
-        <option>南榮教授2</option>
-        <option>楊鎮賢</option>
-        <option>林賢豪</option>
-        <option>王淑誼</option>
-        <option>邱靖嵐</option>
+        <script>
+            for (var i = 0; i < total; i++) {
+                document.write("<option>"+List[i][0]+"</option>");
+            }
+        </script>
 
     </select>
+
     <input type="button"
            onclick="tcSearch(Teacher.options[Teacher.selectedIndex].text)" value="教師查詢"
            style="width:120px; height:37px; font-size:20px">
