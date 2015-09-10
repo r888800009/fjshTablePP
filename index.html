@@ -28,130 +28,79 @@
 
 <p><font color="red" size="5" face="微軟正黑體"><b>請選擇"年級"與"班級"後按"查詢"鍵</b></font></p>
 
-<form>
+<form name="table">
 
-    <select name="Grade" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
+    <select name="Grade" style="width:120px; height:40px; font-size:20px" face="微軟正黑體"
+            onChange="renew(this.options[this.selectedIndex].text)">
 
-        <option value="senior_3" selected>高三</option>
-        <option value="senior_2">高二</option>
-        <option value="senior_1">高一</option>
-        <option value="junior_3">國三</option>
-        <option value="junior_2">國二</option>
-        <option value="junior_1">國一</option>
+        <option selected>請選擇</option>
+        <option>高三</option>
+        <option>高二</option>
+        <option>高一</option>
+        <option>國三</option>
+        <option>國二</option>
+        <option>國一</option>
 
     </select>
 
+    <script>
+
+        classes = new Array();
+        classes[0] = ["忠", "孝", "仁", "愛", "智"]                    //高三
+        classes[1] = ["忠", "孝", "仁", "愛", "智", "勇"]              //高二
+        classes[2] = ["忠", "孝", "仁", "愛", "信", "智", "勇"]        //高一
+        classes[3] = ["忠", "孝", "仁", "愛", "信", "義"]              //國三
+        classes[4] = ["忠", "孝", "仁", "愛", "信", "義", "和"]        //國二
+        classes[5] = ["忠", "孝", "仁", "愛", "信", "義", "和", "平"]  //國一
+
+        function renew(c) {
+
+            var idx
+            if (c == "高三")      idx = 0
+            else if (c == "高二") idx = 1
+            else if (c == "高一") idx = 2
+            else if (c == "國三") idx = 3
+            else if (c == "國二") idx = 4
+            else if (c == "國一") idx = 5
+
+            for (var i = 0; i < classes[idx].length; i++) {
+                document.table.Class.options[i] = new Option(classes[idx][i], classes[idx][i]);
+                document.table.Class.length = classes[idx].length
+            }
+        }
+
+    </script>
+
     <select name="Class" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
-
-        <option value="c1" selected>忠</option>
-        <option value="c2">孝</option>
-        <option value="c3">仁</option>
-        <option value="c4">愛</option>
-        <option value="c5">信</option>
-        <option value="c6">義</option>
-        <option value="c7">和</option>
-        <option value="c8">平</option>
-        <option value="c9">智</option>
-        <option value="c0">勇</option>
-
+        //下拉選單內容會依照年級自動生成
     </select>
 
     <script language="JavaScript">
+
+
         //按照班級查詢
         function show(g, c) {
 
             var uri = "http://www.fjsh.cy.edu.tw/CSHTML1041/C10";
             var target = "";
 
-            if (g == "高三" || g == "高二" || g == "高一") {
-                target += "1";
-                if (g == "高三") {
-                    target += "3";
-                }
+            if (g == 0) {
+                alert("您沒有選擇班級!")
+                return
+            }
 
-                else if (g == "高二") {
-                    target += "2";
-                }
-
-                else if (g == "高一") {
-                    target += "1";
-                }
+            if (g > 0 && g <= 3) {
+                target += "1"
             }
             else {
-                target += "2";
-
-                if (g == "國三") {
-                    target += "3";
-                }
-
-                else if (g == "國二") {
-                    target += "2";
-                }
-
-                else if (g == "國一") {
-                    target += "1";
-                }
+                target += "2"
             }
 
-            if (c == "忠") {
-                target += "1";
-            }
-            else if (c == "孝") {
-                target += "2";
-            }
-            else if (c == "仁") {
-                target += "3";
-            }
-            else if (c == "愛") {
-                target += "4";
-            }
-            else if (c == "信") {
-                target += "5";
-            }
-            else if (c == "義") {
-                target += "6";
-            }
+            if (g == 1 || g == 4) target += "3"
+            else if (g == 2 || g == 5) target += "2"
+            else if (g == 3 || g == 6) target += "1"
 
-            else if (c == "和") {
-                target += "7";
-            }
-
-            else if (c == "平") {
-                target += "8";
-            }
-
-            else if (c == "智") {
-                if (g == "高一") {
-                    target += "6";
-                }
-
-                else if (g == "高二") {
-                    target += "5";
-                }
-
-                else if (g == "高三") {
-                    target += "5";
-                }
-
-                else {
-                    target += "9";
-                }
-            }
-
-            else if (c == "勇") {
-                if (g == "高一") {
-                    target += "7";
-                }
-
-                else if (g == "高二") {
-                    target += "6";
-                }
-
-                else if (g == "高三") {
-                    target += "6";
-                }
-
-            }
+            target += c.toString()
 
             uri = uri + target + ".HTM";
             window.open(uri);
@@ -170,9 +119,6 @@
         //日後只需擴充List，網頁即可抓取對應的成員名單與長度
 
         //此處感謝 林詠翔 同學提供二維陣列的寫法
-        //以下彩蛋(?)另外附上解析學校網頁並自動生成二維陣列內容的程式，可以免去手動打姓名跟編號的麻煩
-        //載點: https://goo.gl/3UBYnt
-        //用法: 將所有班級課表的html放置於此程式的路徑下，並且執行程式進行分析，即可得到所有教師編號
 
         total = List.length
 
@@ -186,6 +132,11 @@
                 }
             }
 
+            if (name == "請選擇") {
+                alert("您沒有選取教師!")
+                return
+            }
+
             uri = uri + target + ".HTM";
 
             target = "";
@@ -196,16 +147,18 @@
     </script>
 
     <input type="button"
-           onclick="show(Grade.options[Grade.selectedIndex].text, Class.options[Class.selectedIndex].text)" value="班級查詢"
+           onclick="show(Grade.selectedIndex, Class.selectedIndex+1)" value="班級查詢"
            style="width:120px; height:40px; font-size:20px">
     <br>
     <br>
 
     <select name="Teacher" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
 
+        <option>請選擇</option>
+
         <script>
             for (var i = 0; i < total; i++) {
-                document.write("<option>"+List[i][0]+"</option>");
+                document.write("<option>" + List[i][0] + "</option>");
             }
         </script>
 
@@ -217,13 +170,15 @@
 
     <br>
     <br>
+
     <p><font color="red" size="5" face="微軟正黑體"><b>校園行事曆</b></font></p>
     <iframe
         src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=320&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=admin%40fjsh.cy.edu.tw&amp;color=%235229A3&amp;ctz=Asia%2FTaipei"
         style=" border-width:0 " width="370" height="300" frameborder="0" scrolling="no"></iframe>
     <br>
     <br>
-    <img src="https://bunkr-private-prod.s3.amazonaws.com/f/f/8/ff83a3ab-28e6-4695-bb8e-45bd171f1da6_orig.jpg"  width="400" height="250">
+    <img src="https://bunkr-private-prod.s3.amazonaws.com/f/f/8/ff83a3ab-28e6-4695-bb8e-45bd171f1da6_orig.jpg"
+         width="400" height="250">
 
 </form>
 
