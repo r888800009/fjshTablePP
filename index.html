@@ -29,7 +29,7 @@
 <p style="color:red; font-size:28px; font-family: Microsoft JhengHei;">請選擇 "年級" 與 "班級" 後按 "查詢" 鍵</p>
 
 <form name="table">
-
+    
     <select name="Grade" style="width:120px; height:40px; font-size:20px" face="微軟正黑體"
             onChange="renew(this.options[this.selectedIndex].text)">
 
@@ -42,7 +42,13 @@
         <option>國一</option>
 
     </select>
-
+    <script>
+        //initialization    
+        var fjshPath = "http://www.fjsh.cy.edu.tw/";
+        var prefixClass = "C10";
+        //generator academic year and semester 
+        var AS = "CSHTML1042/";
+    </script>
     <script>
 
         classes = new Array();
@@ -81,7 +87,8 @@
         //按照班級查詢
         function show(g, c) {
 
-            var uri = "http://www.fjsh.cy.edu.tw/CSHTML1042/C10";
+            var uri = fjshPath + AS + prefixClass;
+            
             var target = "";
 
             if (g == 0) {
@@ -110,7 +117,7 @@
 
     <script>
 
-        var uri = "http://www.fjsh.cy.edu.tw/CSHTML1041/";
+        var uri =  fjshPath + AS;
         var target = "";
 
         var total;
@@ -141,7 +148,7 @@
 
             target = "";
             window.open(uri);
-            uri = "http://www.fjsh.cy.edu.tw/CSHTML1041/";
+            uri = fjshPath + AS;
         }
 
     </script>
