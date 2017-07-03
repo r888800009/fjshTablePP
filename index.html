@@ -3,16 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>輔仁中學課表查詢</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script src="function.js"></script>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -22,16 +20,22 @@
 
 <!-- Add your site or application content here -->
 
-<title>輔仁中學課表查詢</title>
 
-<p style="color:black; font-size: 40px; font-family: Microsoft JhengHei;">輔仁中學課表查詢</p>
 
-<p style="color:red; font-size:28px; font-family: Microsoft JhengHei;">請選擇 "年級" 與 "班級" 後按 "查詢" 鍵</p>
+<p ID="title">輔仁中學課表查詢</p>
 
-<form name="table">
+<p ID="subtitle">請選擇 "年級" 與 "班級" 後按 "查詢" 鍵</p>
 
-    <select name="Grade" style="width:120px; height:40px; font-size:20px" face="微軟正黑體"
-            onChange="renew(this.options[this.selectedIndex].text)">
+
+<script language="JavaScript">   
+    //Defined in function.js
+    init();
+</script>
+
+
+<form name="Class_table">
+    <select name="Grade" 
+            onChange="Grade_renew(this.options[this.selectedIndex].text)">
 
         <option selected>請選擇</option>
         <option>高三</option>
@@ -40,153 +44,53 @@
         <option>國三</option>
         <option>國二</option>
         <option>國一</option>
-
+        
     </select>
-
-    <script>
-
-        classes = new Array();
-        classes[0] = ["忠", "孝", "仁", "愛", "智"]                    //高三
-        classes[1] = ["忠", "孝", "仁", "愛", "智", "勇"]              //高二
-        classes[2] = ["忠", "孝", "仁", "愛", "信", "智", "勇"]        //高一
-        classes[3] = ["忠", "孝", "仁", "愛", "信", "義"]              //國三
-        classes[4] = ["忠", "孝", "仁", "愛", "信", "義", "和"]        //國二
-        classes[5] = ["忠", "孝", "仁", "愛", "信", "義", "和", "平"]  //國一
-
-        function renew(c) {
-
-            var idx
-            if (c == "高三")      idx = 0
-            else if (c == "高二") idx = 1
-            else if (c == "高一") idx = 2
-            else if (c == "國三") idx = 3
-            else if (c == "國二") idx = 4
-            else if (c == "國一") idx = 5
-
-            for (var i = 0; i < classes[idx].length; i++) {
-                document.table.Class.options[i] = new Option(classes[idx][i], classes[idx][i]);
-                document.table.Class.length = classes[idx].length
-            }
-        }
-
-    </script>
-
-    <select name="Class" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
+    <select name="Class">
         //下拉選單內容會依照年級自動生成
     </select>
-
-    <script language="JavaScript">
-
-
-        //按照班級查詢
-        function show(g, c) {
-
-            var uri = "http://www.fjsh.cy.edu.tw/CSHTML1051/C10";
-            //http://www.fjsh.cy.edu.tw/CSHTML1051/
-            var target = "";
-
-            if (g == 0) {
-                alert("您沒有選擇班級!")
-                return
-            }
-
-            if (g > 0 && g <= 3) {
-                target += "1"
-            }
-            else {
-                target += "2"
-            }
-
-            if (g == 1 || g == 4) target += "3"
-            else if (g == 2 || g == 5) target += "2"
-            else if (g == 3 || g == 6) target += "1"
-
-            target += c.toString()
-
-            uri = uri + target + ".HTM";
-            window.open(uri);
-        }
-
-    </script>
-
-    <script>
-
-        var uri = "http://www.fjsh.cy.edu.tw/CSHTML1051/";
-        var target = "";
-
-        var total;
-        var List = new Array(["羅色蕊", "T00106"], ["林美月", "T00108"], ["顏妙芬", "T00109"], ["黃瓊儀", "T00110"], ["張玲敏", "T00111"], ["魏樹煌", "T00112"], ["林義益", "T00118"], ["李姿瑩", "T00121"], ["陳亭妤", "T00122"], ["楊芳瑜", "T00123"], ["陳怡叡", "T00124"], ["謝幸真", "T00125"], ["江易澄", "T00202"], ["胡明哲", "T00203"], ["王敬恆", "T00204"], ["方子毓", "T00205"], ["黃敬家", "T00302"], ["黃義清", "T00304"], ["葉睿寧", "T00309"], ["鍾復民", "T00401"], ["蔡清華", "T00402"], ["王介廷", "T00403"], ["賴威妤", "T00404"], ["劉雅棋", "T00405"], ["張熒珍", "T00406"], ["侯如俐", "T00502"], ["曹峰彰", "T00505"], ["林麗鑫", "T00506"], ["詹嘉珍", "T00507"], ["張冬梅", "T00509"], ["吳建毅", "T00510"], ["James", "T00517"], ["詹力豪", "T00526"], ["楊念達", "T00527"], ["李思柔", "T00528"], ["侯奕瑍", "T00529"], ["林華生", "T00530"], ["廖真慧", "T00531"], ["陸慧澍", "T00532"], ["張凱媚", "T00533"], ["蔡金發", "T00534"], ["吳垣甫", "T00605"], ["李妙真", "T00611"], ["黃宏基", "T00612"], ["楊宗宜", "T00626"], ["林政明", "T00628"], ["吳坤洋", "T00629"], ["張欽斐", "T00631"], ["蘇嘉燦", "T00632"], ["林峮唯", "T00633"], ["蔡易儒", "T00635"], ["柳嘉哲", "T00636"], ["蕭毓頻", "T00637"], ["江浚豪", "T00638"], ["游天明", "T00639"], ["林偉銘", "T00701"], ["陳儒德", "T00702"], ["張政達", "T00703"], ["連閔凱", "T00707"], ["黃世諺", "T00711"], ["何永森", "T00801"], ["郭斌", "T00805"], ["杜亮", "T00813"], ["呂峻豪", "T00814"], ["黃孟冀", "T00815"], ["劉佳宜", "T00816"], ["陳靖縈", "T00908"], ["賴佩君", "T00909"], ["李政鴻", "T00912"], ["劉乃菁", "T00913"], ["蔡佳容", "T00914"], ["張雅琳", "T01001"], ["江如玫", "T01002"], ["江明玲", "T01101"], ["黃永賢", "T01105"], ["顏秀如", "T01106"], ["徐憲清", "T01201"], ["汪振元", "T01202"], ["張建華", "T01204"], ["黃玟穎", "T01209"], ["侯凱喨", "T01301"], ["劉窈吾", "T01302"], ["陳揮明", "T01303"], ["陳泳澄", "T01304"], ["邱雅綺", "T01412"], ["陳志偉", "T01511"], ["林建政", "T01512"], ["Lynne", "T01602"], ["譚志忠", "T01713"], ["王智永", "T01716"], ["劉惠玲", "T01717"], ["盧尚俞", "T01718"], ["陳碧桑", "T01719"], ["南榮教授", "T01720"], ["方淑如", "T01723"], ["南榮教授", "T01724"], ["楊鎮賢", "T01725"], ["林賢豪", "T01726"], ["王淑誼", "T01803"], ["邱靖嵐", "T01805"])
-
-        //日後只需擴充List，網頁即可抓取對應的成員名單與長度
-
-        //此處感謝 林詠翔 同學提供二維陣列的寫法
-
-        total = List.length
-
-        //按照教師姓名查詢
-        function tcSearch(name) {
-
-            for (var i = 0; i < total; i++) {
-
-                if (name == List[i][0]) {
-                    target = List[i][1];
-                }
-            }
-
-            if (name == "請選擇") {
-                alert("您沒有選取教師!")
-                return
-            }
-
-            uri = uri + target + ".HTM";
-
-            target = "";
-            window.open(uri);
-            uri = "http://www.fjsh.cy.edu.tw/CSHTML1051/";
-        }
-
-    </script>
+    <!--
+        Defined in function.js
+        Grade_renew(c)
+    -->
 
     <input type="button"
-           onclick="show(Grade.selectedIndex, Class.selectedIndex+1)" value="班級查詢"
-           style="width:120px; height:40px; font-size:20px">
-    <br>
-    <br>
-
-    <select name="Teacher" style="width:120px; height:40px; font-size:20px" face="微軟正黑體">
-
+           onclick="Search_classes(Grade.selectedIndex, Class.selectedIndex+1)" value="班級查詢">
+    <!--
+        Defined in function.js
+        Search_classes(g, c)
+    -->
+</form>
+<br>
+<form name="Teacher_table">
+    <select name="Teacher">
         <option>請選擇</option>
-
         <script>
-            for (var i = 0; i < total; i++) {
-                document.write("<option>" + List[i][0] + "</option>");
-            }
+            //Defined in function.js
+            Teacher_show();
         </script>
-
     </select>
 
     <input type="button"
-           onclick="tcSearch(Teacher.options[Teacher.selectedIndex].text)" value="教師查詢"
-           style="width:120px; height:40px; font-size:20px">
-
-    <br>
-    <br>
-
-    <p style="color:red; font-size:28px; font-family: Microsoft JhengHei;">校園行事曆</p>
-    <iframe
-        src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=320&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=admin%40fjsh.cy.edu.tw&amp;color=%235229A3&amp;ctz=Asia%2FTaipei"
-        style=" border-width:0 " width="370" height="300" frameborder="0" scrolling="no"></iframe>
-    <br>
-    <br>
-    <img src="https://bunkr-private-prod.s3.amazonaws.com/f/f/8/ff83a3ab-28e6-4695-bb8e-45bd171f1da6_orig.jpg"
-         width="400" height="250">
-
+           onclick="Search_teacher(Teacher.options[Teacher.selectedIndex].text)" value="教師查詢">
+    <!--
+        Defined in function.js
+        Search_teacher(name)
+    -->
+    
 </form>
+<br>
+<p ID="subtitle">校園行事曆</p>
+<iframe
+    src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=320&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=admin%40fjsh.cy.edu.tw&amp;color=%235229A3&amp;ctz=Asia%2FTaipei"
+    style=" border-width:0 " width="370" height="300" frameborder="0" scrolling="no"></iframe>
+<br>
+<br>
+<img src="https://bunkr-private-prod.s3.amazonaws.com/f/f/8/ff83a3ab-28e6-4695-bb8e-45bd171f1da6_orig.jpg"
+     width="400" height="250">
+     
+     
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/{{JQUERY_VERSION}}/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
 
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
