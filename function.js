@@ -1,23 +1,12 @@
 
 //global
-    var fjshPath;
-    var prefixClass;
-    var AS;
     function init(){
-        //initialization    
-        fjshPath = "http://www.fjsh.cy.edu.tw/";
-        prefixClass = "C10";
-        //generator academic year and semester 
-        AS = "CSHTML1052/";
-        //http://www.fjsh.cy.edu.tw/CSHTML1052/      
-        
         //init functions
+        Search_init();
         Grade_init();
         Teacher_init();
+
     }
-
-
-
 
 //Grade
     var classes;
@@ -32,32 +21,20 @@
         classes[5] = ["忠", "孝", "仁", "愛", "信", "義", "和", "平"]  //國一
                 
     }
-    function Grade_renew(c) {
-
-        var idx
-        if (c == "高三")      idx = 0
-        else if (c == "高二") idx = 1
-        else if (c == "高一") idx = 2
-        else if (c == "國三") idx = 3
-        else if (c == "國二") idx = 4
-        else if (c == "國一") idx = 5
-
-        for (var i = 0; i < classes[idx].length; i++) {
-            document.Class_table.Class.options[i] = new Option(classes[idx][i], classes[idx][i]);
-            document.Class_table.Class.length = classes[idx].length
-        }
+    function Grade_renew(idx) {
+        document.Class_table.Class.length = 0;
+        for (var i = 0; i < classes[idx].length; i++) 
+            document.Class_table.Class.options[i] = new Option(classes[idx][i],i);
+        
     }
 
-    
-    
 //Teacher
-    var List_total;
     var List;
     function Teacher_show(){
-        for (var i = 0; i < List_total; i++) {
-            document.write("<option>" + List[i][0] + "</option>");
-        }
+        for (var i = 0; i < List.length; i++) 
+            document.Teacher_table.Teacher.add(new Option(List[i][0],i));       
     }
+
     function Teacher_init(){
         List= new Array(    ["羅色蕊", "T00106"], ["林美月", "T00108"], ["顏妙芬", "T00109"], ["黃瓊儀", "T00110"],
                             ["張玲敏", "T00111"], ["魏樹煌", "T00112"], ["林義益", "T00118"], ["李姿瑩", "T00121"], 
@@ -87,68 +64,53 @@
         //日後只需擴充List，網頁即可抓取對應的成員名單與長度
 
         //此處感謝 林詠翔 同學提供二維陣列的寫法
-
-        List_total = List.length    
+ 
     }
     
-    
-    
-    
-    
-    
 //Search
+    var fjshPath;
+    var prefixClass;
+    var AS;
+    var HTML;
     //按照班級查詢
     function Search_classes(g, c) {
-
-        var uri = fjshPath + AS + prefixClass;
         
-        var target = "";
+        var target = prefixClass;
 
-        if (g == 0) {
+        if (g <= 0) {
             alert("您沒有選擇班級!")
             return
         }
 
-        if (g > 0 && g <= 3) {
-            target += "1"
-        }
-        else {
-            target += "2"
-        }
+        target += (g <= 3) ? "1" : (g -= 3,"2");
+        target += (4 - g);
+        target += c;
 
-        if (g == 1 || g == 4) target += "3"
-        else if (g == 2 || g == 5) target += "2"
-        else if (g == 3 || g == 6) target += "1"
-
-        target += c.toString()
-
-        uri = uri + target + ".HTM";
-        window.open(uri);
+        Search_open(target);
     }
 
     //按照教師姓名查詢
-    function Search_teacher(name) {
-        var uri =  fjshPath + AS;
-        var target = "";
-        for (var i = 0; i < List_total; i++) {
-
-            if (name == List[i][0]) {
-                target = List[i][1];
-            }
-        }
-
-        if (name == "請選擇") {
+    function Search_teacher(index) {
+        if (List[index][1] === undefined) {
             alert("您沒有選取教師!")
             return
         }
-
-        uri = uri + target + ".HTM";
-
-        target = "";
-        window.open(uri);
-        uri = fjshPath + AS;
+        Search_open(List[index][1]);
     }
 
+    function Search_init(){
+        fjshPath = "http://www.fjsh.cy.edu.tw/";
+        prefixClass = "C10";
+        HTML = ".HTM";
+        //generator academic year and semester 
+        AS = "CSHTML1052/";
+        //http://www.fjsh.cy.edu.tw/CSHTML1052/      
+    }
+
+    //open
+    function Search_open(target){
+        window.open(fjshPath + AS + target + HTML);
+    }
 
 
 

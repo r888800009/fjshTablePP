@@ -10,9 +10,9 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" type="text/css" href="css.css">
-    <script src="function.js"></script>
+    <script src="function.js" onload="init()"></script>
 </head>
-<body>
+<body onload="Teacher_show();">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -26,16 +26,9 @@
 
 <p ID="subtitle">請選擇 "年級" 與 "班級" 後按 "查詢" 鍵</p>
 
-
-<script language="JavaScript">   
-    //Defined in function.js
-    init();
-</script>
-
-
 <form name="Class_table">
     <select name="Grade" 
-            onChange="Grade_renew(this.options[this.selectedIndex].text)">
+            onChange="Grade_renew(this.selectedIndex-1)">
 
         <option selected>請選擇</option>
         <option>高三</option>
@@ -49,34 +42,20 @@
     <select name="Class">
         <!-- 下拉選單內容會依照年級自動生成 -->
     </select>
-    <!--
-        Defined in function.js
-        Grade_renew(c)
-    -->
 
-    <input type="button"
-           onclick="Search_classes(Grade.selectedIndex, Class.selectedIndex+1)" value="班級查詢">
-    <!--
-        Defined in function.js
-        Search_classes(g, c)
-    -->
+    <input type="button" value="班級查詢"
+           onclick="Search_classes(Grade.selectedIndex, Class.selectedIndex + 1)">
+
 </form>
 <br>
-<form name="Teacher_table">
+<form name="Teacher_table"  >
     <select name="Teacher">
         <option>請選擇</option>
-        <script>
-            //Defined in function.js
-            Teacher_show();
-        </script>
+        <!-- 下拉選單內容會依照陣列自動生成 -->
     </select>
 
     <input type="button"
-           onclick="Search_teacher(Teacher.options[Teacher.selectedIndex].text)" value="教師查詢">
-    <!--
-        Defined in function.js
-        Search_teacher(name)
-    -->
+           onclick="Search_teacher(Teacher.value)" value="教師查詢">
     
 </form>
 <br>
